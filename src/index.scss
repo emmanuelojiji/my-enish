@@ -1,4 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  background: #141414;
+  height: 100svh;
+  padding-left: 20px;
+  padding-right: 20px;
 }

@@ -1,0 +1,22 @@
+.calorie-counter {
+  * {
+    color: white;
+  }
+
+  .total {
+    font-size: 80px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
