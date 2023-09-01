@@ -1,26 +1,39 @@
 import "./ProductCard.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ProductCard = ({
+  selectdProduct,
   product_name,
   product_desc,
+  product_quantity,
   calories,
-  products,
   total,
   setTotal,
+  setProducts,
+  productId,
 }) => {
-  const [quantity, setQuantity] = useState(0);
-
-  const incrementQuantity = () => {
+  const incrementQuantity = (productId) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
     setTotal(total + calories);
-    setQuantity(quantity + 1);
   };
 
-  const decrementQuantity = () => {
-    if (quantity > 0) {
-      setTotal(total - calories);
-      setQuantity(quantity - 1);
+  const decrementQuantity = (productId) => {
+    if (product_quantity > 0) {
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === productId
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+      );
     }
+    setTotal(total - calories);
   };
 
   return (
@@ -34,10 +47,10 @@ const ProductCard = ({
       </div>
 
       <div className="button-container">
-        {!quantity ? (
+        {product_quantity === 0 ? (
           <button
             onClick={() => {
-              incrementQuantity();
+              incrementQuantity(productId);
             }}
           >
             Add
@@ -45,14 +58,14 @@ const ProductCard = ({
         ) : (
           <>
             <button
-              onClick={() => decrementQuantity()}
+              onClick={() => decrementQuantity(productId)}
               className="quantity-button"
             >
               -
             </button>
-            <h3>{quantity}</h3>
+            <h3>{product_quantity}</h3>
             <button
-              onClick={() => incrementQuantity()}
+              onClick={() => incrementQuantity(productId)}
               className="quantity-button"
             >
               +
