@@ -4,7 +4,7 @@
   }
 
   .total {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .header {
@@ -19,5 +19,42 @@
     flex-direction: column;
     gap: 30px;
     margin-bottom: 50px;
+  }
+
+  .total-circle {
+    border: 2px solid brown;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search{
+    width: 100%;
+    background: none;
+    border:0;
+    border-bottom: solid 1px grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+  }
+
+  .selected-items{
+
+    .card-container{
+      transition: 0.2s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+
+      &.expanded{
+        max-height:65px;
+        overflow: auto;
+      }
+    }
+
   }
 }

@@ -1,8 +1,8 @@
 import "./ProductCard.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductCard = ({
-  selectdProduct,
+  selectedProducts,
   product_name,
   product_desc,
   product_quantity,
@@ -12,6 +12,8 @@ const ProductCard = ({
   setProducts,
   productId,
 }) => {
+  let isVisible = true;
+
   const incrementQuantity = (productId) => {
     setProducts((prevProducts) =>
       prevProducts.map((product) =>

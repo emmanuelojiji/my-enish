@@ -9,18 +9,33 @@ const CalorieCounter = () => {
 
   const [selectedProducts, setSelectedProducts] = useState([]);
 
+  const [isSelectedProductsExpanded, setIsSelectedProductsExpanded] =
+    useState(false);
+
   return (
     <div className="calorie-counter page">
       <div className="header">
-        <h2 className="total">{total}</h2>
-        <p>Calories</p>
+        <div className="total-circle">
+          <h2 className="total">{total}</h2>
+          <p>Calories</p>
+        </div>
       </div>
 
-      {total > 0 && (
-        <div className="selected-items">
-          <h3>Selected Items</h3>
+      <input
+        type="text"
+        className="search"
+        placeholder="Search for item"
+      ></input>
 
-          <div className="card-container">
+      {total > 0 && (
+        <div className={`selected-items ${total > 0 ? "fade-in" : "fade-out"}`}>
+          <h3 onClick={() => setIsSelectedProductsExpanded(!isSelectedProductsExpanded)}>Selected Items</h3>
+
+          <div
+            className={`card-container ${
+              isSelectedProductsExpanded ? "expanded" : null
+            }`}
+          >
             {products
               .filter((product) => product.quantity > 0)
               .map((product) => (
@@ -36,6 +51,7 @@ const CalorieCounter = () => {
                   setTotal={setTotal}
                   selectedProducts={selectedProducts}
                   setSelectedProducts={setSelectedProducts}
+                  forSelectedItemsTransition={true}
                 />
               ))}
           </div>
