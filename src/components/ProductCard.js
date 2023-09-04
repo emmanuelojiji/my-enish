@@ -11,6 +11,7 @@ const ProductCard = ({
   setTotal,
   setProducts,
   productId,
+  setIsSelectedProductsExpanded,
 }) => {
   let isVisible = true;
 
@@ -23,6 +24,7 @@ const ProductCard = ({
       )
     );
     setTotal(total + calories);
+    highlightSelected();
   };
 
   const decrementQuantity = (productId) => {
@@ -38,24 +40,37 @@ const ProductCard = ({
     setTotal(total - calories);
   };
 
+  const [productSelected, setProductSelected] = useState(false);
+
+  const highlightSelected = () => {
+    setProductSelected(true);
+
+    setTimeout(() => {
+      setProductSelected(false);
+    }, 500);
+  };
+
   return (
     <div className="product-card">
       <div>
         <div className="name-calories-wrap">
-          <h3>{product_name}</h3>
-          <p>{calories}</p>
+          <h3 className="product_name" style={{ color: productSelected && "#CDA75C" }}>
+            {product_name}
+          </h3>
+          <p className="calories" style={{ color: productSelected && "#CDA75C" }}>{calories}</p>
         </div>
-        <p>{product_desc}</p>
+        <p className="product_desc" style={{ color: productSelected && "#CDA75C" }}>{product_desc}</p>
       </div>
 
       <div className="button-container">
         {product_quantity === 0 ? (
           <button
+          className="quantity-button"
             onClick={() => {
               incrementQuantity(productId);
             }}
           >
-            Add
+            +
           </button>
         ) : (
           <>

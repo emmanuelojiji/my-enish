@@ -1,9 +1,9 @@
 import "./CalorieCounter.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductData } from "../productData";
 import ProductCard from "../components/ProductCard";
 
-const CalorieCounter = () => {
+const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [total, setTotal] = useState(0);
   const [products, setProducts] = useState(ProductData);
 
@@ -11,6 +11,23 @@ const CalorieCounter = () => {
 
   const [isSelectedProductsExpanded, setIsSelectedProductsExpanded] =
     useState(false);
+
+  let previousScrollValue = 0; // Store the previous scroll value
+
+  window.onscroll = () => {
+    const currentScrollValue = Math.round(window.scrollY);
+    console.log(currentScrollValue);
+
+    if (currentScrollValue > previousScrollValue + 5) {
+      // Scrolled down by more than 10 pixels
+      setIsNavBarVisible(false);
+    } else if (currentScrollValue < previousScrollValue) {
+      // Scrolled up by more than 10 pixels
+      setIsNavBarVisible(true);
+    }
+
+    previousScrollValue = currentScrollValue; // Update the previous scroll value
+  };
 
   return (
     <div className="calorie-counter page">
@@ -29,7 +46,14 @@ const CalorieCounter = () => {
 
       {total > 0 && (
         <div className={`selected-items ${total > 0 ? "fade-in" : "fade-out"}`}>
-          <h3 onClick={() => setIsSelectedProductsExpanded(!isSelectedProductsExpanded)}>Selected Items</h3>
+          <h3
+            onClick={() => {
+              setIsSelectedProductsExpanded(!isSelectedProductsExpanded);
+              console.log(isSelectedProductsExpanded);
+            }}
+          >
+            Selected Items
+          </h3>
 
           <div
             className={`card-container ${
@@ -58,7 +82,7 @@ const CalorieCounter = () => {
         </div>
       )}
 
-      <h3>Menu</h3>
+      <h3 className="sub-heading">Menu</h3>
       <div className="card-container">
         {products.map((product) => (
           <ProductCard
@@ -73,6 +97,7 @@ const CalorieCounter = () => {
             setTotal={setTotal}
             selectedProducts={selectedProducts}
             setSelectedProducts={setSelectedProducts}
+            setIsSelectedProductsExpanded={setIsSelectedProductsExpanded}
           />
         ))}
       </div>

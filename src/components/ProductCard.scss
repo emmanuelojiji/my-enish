@@ -1,8 +1,14 @@
 .product-card {
+  * {
+    transition: 0.3s ease-in-out;
+  }
   opacity: 0;
   animation: fade-in 0.5s linear forwards;
+
   button {
-    color: black;
+    color: white;
+    background: #1b1b1b;
+    cursor: pointer;
   }
 
   display: flex;
@@ -12,6 +18,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 10px;
   }
 
   .button-container {
@@ -25,6 +32,14 @@
     border-radius: 500px;
     height: 30px;
     width: 30px;
+  }
+
+  .product_desc {
+    color: #686868;
+  }
+  
+  .calories{
+    color: #CDA75C;
   }
 
   @keyframes fade-in {

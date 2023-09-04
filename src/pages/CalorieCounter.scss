@@ -5,6 +5,8 @@
 
   .total {
     font-size: 60px;
+    color: #cda75c;
+    font-weight: 100;
   }
 
   .header {
@@ -14,47 +16,53 @@
     justify-content: center;
   }
 
+  .sub-heading {
+    margin-bottom: 25px;
+  }
+
   .card-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-bottom: 50px;
   }
 
   .total-circle {
-    border: 2px solid brown;
+    border: 2px solid #cda75c;
     height: 200px;
     width: 200px;
     border-radius: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .search{
+  .search {
     width: 100%;
     background: none;
-    border:0;
+    border: 0;
     border-bottom: solid 1px grey;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-bottom: 10px;
   }
 
-  .selected-items{
+  .selected-items {
+    transition: 0.2s ease-in-out;
+    margin-bottom: 50px;
 
-    .card-container{
-      transition: 0.2s ease-in-out;
+    .card-container {
+      visibility: hidden;
       max-height: 0;
-      overflow: hidden;
 
-      &.expanded{
-        max-height:65px;
-        overflow: auto;
+      &.expanded {
+        visibility: visible;
+        max-height: fit-content;
       }
     }
+  }
 
+  .selected {
+    color: gold;
   }
 }
