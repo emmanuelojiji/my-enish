@@ -57,7 +57,7 @@ const ProductCard = ({
           <h3 className="product_name" style={{ color: productSelected && "#CDA75C" }}>
             {product_name}
           </h3>
-          <p className="calories" style={{ color: productSelected && "#CDA75C" }}>{calories}</p>
+          <p className="product-calories" style={{ color: productSelected && "#CDA75C" }}>{calories}</p>
         </div>
         <p className="product_desc" style={{ color: productSelected && "#CDA75C" }}>{product_desc}</p>
       </div>

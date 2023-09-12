@@ -16,6 +16,11 @@
     justify-content: center;
   }
 
+  .header-gradient {
+    position: absolute;
+    top: 0;
+  }
+
   .sub-heading {
     margin-bottom: 25px;
   }
@@ -35,6 +40,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .calories {
+    letter-spacing: 3px;
+    font-size: 12px;
   }
 
   .search {

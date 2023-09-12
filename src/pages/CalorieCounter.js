@@ -2,6 +2,7 @@ import "./CalorieCounter.scss";
 import { useEffect, useRef, useState } from "react";
 import { ProductData } from "../productData";
 import ProductCard from "../components/ProductCard";
+import gradient from "../media/gradient.svg";
 
 const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [total, setTotal] = useState(0);
@@ -32,9 +33,10 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
   return (
     <div className="calorie-counter page">
       <div className="header">
+        <img className="header-gradient" src={gradient} />
         <div className="total-circle">
-          <h2 className="total">{total}</h2>
-          <p>Calories</p>
+          <h1 className="total">{total}</h1>
+          <p className="calories">CALORIES</p>
         </div>
       </div>
 
