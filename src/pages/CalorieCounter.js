@@ -13,22 +13,8 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [isSelectedProductsExpanded, setIsSelectedProductsExpanded] =
     useState(false);
 
-  let previousScrollValue = 0; // Store the previous scroll value
 
-  window.onscroll = () => {
-    const currentScrollValue = Math.round(window.scrollY);
-    console.log(currentScrollValue);
-
-    if (currentScrollValue > previousScrollValue + 5) {
-      // Scrolled down by more than 10 pixels
-      setIsNavBarVisible(false);
-    } else if (currentScrollValue < previousScrollValue) {
-      // Scrolled up by more than 10 pixels
-      setIsNavBarVisible(true);
-    }
-
-    previousScrollValue = currentScrollValue; // Update the previous scroll value
-  };
+  
 
   return (
     <div className="calorie-counter page">
