@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ProductData } from "../productData";
 import ProductCard from "../components/ProductCard";
 import gradient from "../media/gradient.svg";
+import TabNav from "../components/TabNav";
 
 const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [total, setTotal] = useState(0);
@@ -13,8 +14,7 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [isSelectedProductsExpanded, setIsSelectedProductsExpanded] =
     useState(false);
 
-
-  
+  const [currentView, setCurrentView] = useState("starters");
 
   return (
     <div className="calorie-counter page">
@@ -31,6 +31,8 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
         className="search"
         placeholder="Search for item"
       ></input>
+
+      <TabNav />
 
       {total > 0 && (
         <div className={`selected-items ${total > 0 ? "fade-in" : "fade-out"}`}>
