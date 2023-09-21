@@ -3,7 +3,10 @@
   justify-content: space-between;
   min-width: 100%;
   overflow: scroll;
-  margin-bottom: 50px;
+  background: #141414;
+  
+  display: flex;
+  align-items: center;
 
   span {
     color: #777777;

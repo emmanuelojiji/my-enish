@@ -29,16 +29,18 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
         </div>
       </div>
 
-      <input
-        type="text"
-        className="search"
-        placeholder="Search for item"
-      ></input>
+      <div className="sticky-container">
+        <input
+          type="text"
+          className="search"
+          placeholder="Search for item"
+        ></input>
 
-      <TabNav
-        translateAmount={translateAmount}
-        setTranslateAmount={setTranslateAmount}
-      />
+        <TabNav
+          translateAmount={translateAmount}
+          setTranslateAmount={setTranslateAmount}
+        />
+      </div>
 
       {total > 0 && (
         <div className={`selected-items ${total > 0 ? "fade-in" : "fade-out"}`}>
