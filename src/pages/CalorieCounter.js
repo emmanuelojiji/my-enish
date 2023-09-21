@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import gradient from "../media/gradient.svg";
 import TabNav from "../components/TabNav";
 import Menu from "../components/Menu";
+import CaloriesFixed from "../components/CaloriesFixed";
 
 const CalorieCounter = ({ setIsNavBarVisible }) => {
   const [total, setTotal] = useState(0);
@@ -19,8 +20,13 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
 
   const [translateAmount, setTranslateAmount] = useState(0);
 
+ 
+
+  
+
   return (
     <div className="calorie-counter page">
+      <CaloriesFixed total={total} />
       <div className="header">
         <img className="header-gradient" src={gradient} />
         <div className="total-circle">
@@ -86,6 +92,7 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
         >
           <Menu
             products={products}
+            setTotal={setTotal}
             total={total}
             setProducts={setProducts}
             setSelectedProducts={setSelectedProducts}
@@ -95,6 +102,7 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
           />
           <Menu
             products={products}
+            setTotal={setTotal}
             total={total}
             setProducts={setProducts}
             setSelectedProducts={setSelectedProducts}
