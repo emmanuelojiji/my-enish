@@ -20,13 +20,12 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
 
   const [translateAmount, setTranslateAmount] = useState(0);
 
- 
-
-  
-
   return (
     <div className="calorie-counter page">
       <CaloriesFixed total={total} />
+      <div className="search">
+        <input type="text" placeholder="Search for item"></input>
+      </div>
       <div className="header">
         <img className="header-gradient" src={gradient} />
         <div className="total-circle">
@@ -36,12 +35,6 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
       </div>
 
       <div className="sticky-container">
-        <input
-          type="text"
-          className="search"
-          placeholder="Search for item"
-        ></input>
-
         <TabNav
           translateAmount={translateAmount}
           setTranslateAmount={setTranslateAmount}

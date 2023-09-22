@@ -52,13 +52,24 @@
   }
 
   .search {
-    width: 100%;
-    background: none;
+    min-width: 100%;
+    background: #141414;
     border: 0;
-    border-bottom: solid 1px grey;
-    padding-bottom: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
     margin-bottom: 25px;
+    height: 50px;
+    display: flex;
+    align-items: c;
+    position: sticky;
+    top: 0;
+    z-index: 3;
 
+    input{
+      background: 0;
+      border: 0;
+      padding-left: 20px;
+    }
   }
 
   .selected-items {
@@ -93,7 +104,7 @@
 
   .sticky-container {
     position: sticky;
-    top: 0;
+    top: 30px;
     z-index: 1;
     background: #141414;
     margin-left: -20px;
