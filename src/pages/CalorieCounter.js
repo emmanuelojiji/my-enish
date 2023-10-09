@@ -28,10 +28,10 @@ const CalorieCounter = ({ setIsNavBarVisible }) => {
       </div>
       <div className="header">
         <img className="header-gradient" src={gradient} />
-        <div className="total-circle">
+        
           <h1 className="total">{total}</h1>
           <p className="calories">CALORIES</p>
-        </div>
+ 
       </div>
 
       <div className="sticky-container">
