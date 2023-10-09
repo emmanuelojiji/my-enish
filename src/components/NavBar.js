@@ -1,6 +1,6 @@
 import "./NavBar.scss";
 
-const NavBar = ({ isNavBarVisible, setView }) => {
+const NavBar = ({ isNavBarVisible, view, setView }) => {
   const changeView = (view) => {
     setView(view);
   };
@@ -9,9 +9,9 @@ const NavBar = ({ isNavBarVisible, setView }) => {
     <div
       className={`nav-bar ${isNavBarVisible ? "nav-visible" : "nav-hidden"}`}
     >
-      <div onClick={() => setView(1)}></div>
-      <div onClick={() => setView(2)}></div>
-      <div onClick={() => setView(3)}></div>
+      <div className={view === 1 && "active"} onClick={() => setView(1)}></div>
+      <div className={view === 2 && "active"} onClick={() => setView(2)}></div>
+      <div className={view === 3 && "active"} onClick={() => setView(3)}></div>
     </div>
   );
 };

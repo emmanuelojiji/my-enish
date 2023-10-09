@@ -12,10 +12,11 @@ function App() {
   return (
     <div className="App">
       {view === 1 && <Home />}
-      
+
       <NavBar
         isNavBarVisible={isNavBarVisible}
         setIsNavBarVisible={setIsNavBarVisible}
+        view={view}
         setView={setView}
       />
       {view === 2 && (
